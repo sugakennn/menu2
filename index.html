@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>SAMPLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      position: relative;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+
+      animation-name: move;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+
+    }
+    ul::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      animation-name: h;
+      animation-duration: 0.7s;
+      animation-fill-mode: forwards;
+      background-color:#000;
+      z-index: -1;
+    }
+
+    @keyframes move {
+      70% {
+        height: 100px;
+        line-height: 100px;
+      }
+      100% {
+        height: 60px;
+        line-height: 60px;
+      }
+    }
+
+    @keyframes h {
+      0% {
+        width: 0%;
+
+      }
+      100% {
+        width: 100%;
+
+      }
+    }
+
+    ul li {
+      float: left;
+      width: 20%;
+    }
+
+    ul li a {
+      text-decoration: none;
+      display: block;
+      color: #fff;
+      text-align: center;
+    }
+
+    .bar-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20%;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+      text-align: center;
+    }
+
+    .bar-wrapper span.bar {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin: 0 auto;
+    }
+
+    ul li:nth-child(1):hover ~ .bar-wrapper {
+      left: 0%;
+    }
+    ul li:nth-child(2):hover ~ .bar-wrapper {
+      left: 20%;
+    }
+    ul li:nth-child(3):hover ~ .bar-wrapper {
+      left: 40%;
+    }
+    ul li:nth-child(4):hover ~ .bar-wrapper {
+      left: 60%;
+    }
+    ul li:nth-child(5):hover ~ .bar-wrapper {
+      left: 80%;
+    }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">メニュー1</a></li>
+        <li><a href="#">メニュー2</a></li>
+        <li><a href="#">メニュー3</a></li>
+        <li><a href="#">メニュー4</a></li>
+        <li><a href="#">メニュー5</a></li>
+        <div class="bar-wrapper"><span class="bar"></span></div>
+      </ul>
+    </nav>
+  </body>
+</html>
